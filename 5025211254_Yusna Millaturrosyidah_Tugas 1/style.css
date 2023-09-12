@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+header {
+    background-color: #F5EBE0; 
+    color: rgb(75, 55, 55);
+    text-align: center;
+    padding: 50px 0;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Forte';
+}
+
+.header-content h1 {
+    font-size: 36px;
+}
+
+.header-content p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #DBA39A;
+    color: white;
+}
+
+.profile {
+    display: flex;
+    background-color: #DBA39A;
+    align-items: center;
+    padding: 100px 0; 
+    font-family: 'Poppins';
+}
+
+.profile .content {
+    max-width: 1000px;
+    padding: 0 10%;
+}
+
+.profile .content h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.profile .content p {
+    margin-top: 24px;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 1.4;
+    color: rgb(75, 55, 55);
+}
+
+.profile img {
+    max-height: 600px;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top: -200px; 
+}
+
+
+.line1, .line2, .line3 {
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid rgb(75, 55, 55);
+}
+
+.edu, .exp {
+    padding: 0 10%;
+    margin: 100px 0px;
+    font-family: 'Poppins';
+}
+
+.edu h2, .exp h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-family: 'Cooper Black';
+}
+
+.edu table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edu th, td {
+    padding: 10px 20px;
+    border: 1px solid rgb(75, 55, 55);
+}
+
+.edu th {
+    font-size: 28px;
+    background-color: #F5EBE0;
+    font-weight: 500;
+    font-family: 'Cooper Black';
+    color: rgb(75, 55, 55);
+}
+
+.edu td {
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.exp .sch23, .sch22, .jmmi, .bemf, .cssmora, .kemenag {
+    display: flex;
+    align-items: center;
+}
+
+.exp img {
+    max-width: 150px; 
+    max-height: 150px; 
+    margin-right: 50px; 
+}
+
+.exp .text h3 {
+    font-size: 28px;
+    padding-left: 100px;
+    font-weight: 600;
+    font-family: 'Cambria';
+}
+
+.exp .text h4 {
+    font-size: 20px;
+    padding-left: 100px;
+    font-weight: 400;
+    color: white;
+}
+
+.exp .text span {
+    color: white;
+}
+
+.exp .text ul {
+    font-size: 18px;
+    padding-left: 120px;
+    font-weight: 200;
+    color: #513b3b;
+}
+
+.social {
+    padding: 100px 10% 24px;
+    text-align: center;
+    font-family: 'Cooper Black';
+}
+
+.social h2{
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 100px;
+}
+
+.social .content {
+    margin-bottom: 100px;
+}
+
+.social .content a {
+    color: white;
+    margin: 0 50px;
+}
+
+.social .content a:hover {
+    color:rgb(75, 55, 55);
+}
+
+.social .content .icon {
+    width: 50px;
+    height: 50px;
+}
+footer {
+    text-align: center;
+    color: rgb(75, 55, 55);
+    background-color: #F5EBE0;
+    padding: 10px 0;
+    bottom: 0; 
+    width: 100%;
+}
