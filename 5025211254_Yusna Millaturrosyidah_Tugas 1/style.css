@@ -6,8 +6,8 @@
 }
 
 header {
-    background-color: #F5EBE0; 
-    color: rgb(75, 55, 55);
+    background-color: #F3B3C1; 
+    color: #DF4879;
     text-align: center;
     padding: 50px 0;
 }
@@ -20,22 +20,32 @@ header {
 
 .header-content h1 {
     font-size: 36px;
+    animation: moveText 1s ease-in-out infinite alternate; 
 }
 
 .header-content p {
     font-size: 18px;
     margin-top: 10px;
+    animation: moveText 1s ease-in-out infinite alternate; 
 }
 
+@keyframes moveText {
+    0% {
+        transform: translateY(0); 
+    }
+    100% {
+        transform: translateY(-10px); 
+    }
+}
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #DBA39A;
+    background-color: #E37598;
     color: white;
 }
 
 .profile {
     display: flex;
-    background-color: #DBA39A;
+    background-color: #E37598;
     align-items: center;
     padding: 100px 0; 
     font-family: 'Poppins';
@@ -68,8 +78,7 @@ body {
     margin-top: -200px; 
 }
 
-
-.line1, .line2, .line3 {
+.line1, .line2, .line3, .line4 {
     width: 80%;
     margin: auto;
     border-bottom: 1px solid rgb(75, 55, 55);
@@ -96,15 +105,15 @@ body {
 
 .edu th, td {
     padding: 10px 20px;
-    border: 1px solid rgb(75, 55, 55);
+    border: 1px solid white;
 }
 
 .edu th {
     font-size: 28px;
-    background-color: #F5EBE0;
+    background-color: #F3B3C1;
     font-weight: 500;
     font-family: 'Cooper Black';
-    color: rgb(75, 55, 55);
+    color: #DF4879;
 }
 
 .edu td {
@@ -127,8 +136,14 @@ body {
     font-size: 28px;
     padding-left: 100px;
     font-weight: 600;
+    color: white;
     font-family: 'Cambria';
 }
+
+.exp .text h3:hover {
+    color:#BF2761;
+}
+
 
 .exp .text h4 {
     font-size: 20px;
@@ -145,8 +160,9 @@ body {
     font-size: 18px;
     padding-left: 120px;
     font-weight: 200;
-    color: #513b3b;
+    color: rgb(75, 55, 55);
 }
+
 
 .social {
     padding: 100px 10% 24px;
@@ -170,17 +186,82 @@ body {
 }
 
 .social .content a:hover {
-    color:rgb(75, 55, 55);
+    color:#BF2761;
 }
 
 .social .content .icon {
     width: 50px;
     height: 50px;
+    transition: transform 0.3s ease-in-out;
 }
+
+.social .content .icon:hover {
+    transform: translateY(-10px); 
+}
+
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Cooper Black';
+}
+
+.contact-form form {
+    text-align: left;
+}
+
+.contact-form label {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Cooper Black';
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(75, 55, 55);
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form textarea {
+    height: 100px;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #F3B3C1;
+    color: #BF2761;
+    font-size: 24px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    font-family: 'Cooper Black';
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #BF2761;
+    color: #F3B3C1;
+}
+
 footer {
     text-align: center;
-    color: rgb(75, 55, 55);
-    background-color: #F5EBE0;
+    color: #DF4879;
+    background-color: #F3B3C1;
     padding: 10px 0;
     bottom: 0; 
     width: 100%;
