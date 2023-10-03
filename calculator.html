@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            outline: 0;
+            transition: all 0.5s ease;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-image: #EDEEF3;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+        }
+
+        .calculator {
+            position: relative;
+            height: auto;
+            width: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px #000;
+        }
+
+        button {
+            height: 60px;
+            width: 60px;
+            border: 0;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 22px;
+            font-family: "Cambria", sans-serif; 
+            cursor: pointer;
+            transition: all 200ms ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        button#equal {
+            width: 130px;
+        }
+
+        .calculator {
+            background-color: #F5DDE0;
+        }
+
+        .calculator button#clear {
+            background-color: #B88F88;
+            color: #5e292c;
+        }
+
+        .calculator button.btn-number {
+            background-color: #C06378;
+            color: #492630;
+        }
+
+        .calculator button.btn-operator {
+            background-color: #8D769A;
+            color: #46315C;
+        }
+
+        .calculator button.btn-equal {
+            background-color: #e1b3bd;
+            color: #000;
+        }
+        
+
+        h2 {
+            font-size: 36px;
+            color: #E894A7;
+            text-align: center;
+            font-family: "Cooper Black", sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .textarea {
+            width: 100%;
+            padding: 20px;
+            font-size: 18px;
+            font-family: "Cambria", sans-serif;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            margin-top: 70px;
+        }
+
+        .textarea:focus {
+            border-color: #333;
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h2>Calculator</h2>
+            <form name="form">
+                <input class="textarea" name="textarea" id="textarea" readonly>
+			</form>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="btn-number" id="7">7</button></td>
+                        <td><button class="btn-number" id="8">8</button></td>
+                        <td><button class="btn-number" id="9">9</button></td>
+                        <td><button class="btn-operator" id="+">+</button></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="4">4</button></td>
+                        <td><button class="btn-number" id="5">5</button></td>
+                        <td><button class="btn-number" id="6">6</button></td>
+                        <td><button class="btn-operator" id="-">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="1">1</button></td>
+                        <td><button class="btn-number" id="2">2</button></td>
+                        <td><button class="btn-number" id="3">3</button></td>
+                        <td><button class="btn-operator" id="*">&times;</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-operator" id="clear">C</button></td>
+                        <td colspan="2"><button class="btn-equal" id="equal">=</button></td>
+                        <td><button class="btn-operator" id="/">&divide;</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const textarea = document.getElementById("textarea");
+        const buttons = document.querySelectorAll("button");
+        let currentInput = "";
+        let currentOperator = "";
+        let firstValue = null;
+        
+        const operators = {
+            '+': (a, b) => a + b,
+            '-': (a, b) => a - b,
+            '*': (a, b) => a * b,
+            '/': (a, b) => (b !== 0 ? a / b : 'Error: Division by zero'),
+        };
+        
+        buttons.forEach((item) => {
+            item.onclick = () => {
+                if (item.id === "clear") return clearInput();
+                if (item.id === "equal") return calculate();
+                
+                if (operators[item.id]) {
+                    updateOperator(item.id);
+                } else {
+                    updateInput(item.id);
+                }
+            };
+        });
+        
+        function updateInput(value) {
+            currentInput += value;
+            textarea.value = currentInput;
+        }
+        
+        function updateOperator(operator) {
+            if (currentInput !== "") {
+                firstValue = parseFloat(currentInput);
+                currentInput = "";
+            }
+            currentOperator = operator;
+        }
+        
+        function clearInput() {
+            currentInput = currentOperator = "";
+            firstValue = null;
+            textarea.value = "";
+        }
+        
+        function calculate() {
+            if (currentInput === "") return (textarea.value = 'Invalid input');
+            if (firstValue === null) return (textarea.value = 'Invalid input');
+        
+            const secondValue = parseFloat(currentInput);
+            const result = operators[currentOperator](firstValue, secondValue);
+        
+            textarea.value = result;
+            currentInput = result.toString();
+        }
+    </script>
+</body>
+</html>
