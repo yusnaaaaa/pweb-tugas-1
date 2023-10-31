@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Belajar VueJS</title>
+        <script src="https://unpkg.com/vue@3"></script>
+        <style>
+
+        .box{
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+        li.fav{
+            background: cornflowerblue;
+        }
+        </style>
+    </head>
+    <body>
+        Hello
+        <div id="app">
+            <!-- <a v-bind:href="url">Link</a> -->
+            <a :href="url">Link</a><br>
+            <img :src="image">
+            <div v-if="show">
+            <!-- Template -->
+            <!-- {{ title }} - {{ author }} - {{ age }} -->
+                <!-- <p>{{books[0].title}} - {{books[0].author}}</p>
+                <p>{{books[1].title}} - {{books[1].author}}</p>
+                <p>{{books[2].title}} - {{books[2].author}}</p> -->
+                <ul>
+                    <li v-for="book in books" :class="{ fav: book.isFav }" @click="toogleFav(book)">
+                        <p>{{book.title}} - {{book.author}}</p>
+                    </li>
+                </ul>
+            </div>
+            <button @click="changeShow()">
+                <span v-if="show">Hide</span>
+                <span v-else>Show</span>
+            </button>
+
+            <br>
+            <!-- <div class="box"@mouseover="handleEvent">mouseover (enter)</div>
+            <div class="box"@mouseleave="handleEvent">mouseleave</div>
+            <div class="box"@dblclick="handleEvent">doubleClick</div>
+            <div class="box"@mousemove="handleMousemove">position {{ x }} {{ y }}</div> -->
+
+            <!-- <button @click="changeShow()">Button Show</button>
+            <button @click="age++">Tambah usia</button>
+            <button @click="age--">Kurangi usia</button>
+            <div v-on:click="changeTitle('Malware dan Hacking')">Ganti Title</div> -->
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
